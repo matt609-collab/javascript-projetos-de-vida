@@ -35,7 +35,7 @@ body{
     color: var(--verde);
 }
 
-.button4{
+.button{
     font-family: 'Chakra Petch', sans-serif;
     border-radius: 20px;
     background-color: var(--botao-inativo);
@@ -56,9 +56,34 @@ body{
     display:block;
 }
 
-.ativo{
+.button.ativo{
     background-color: var(--botao-ativo);
     border-bottom: 4px solid var(--verde);
+}
+
+.abas-texto{
+    background-color: var(--texto-fundo);
+    padding: 40px;
+    border-radius: 0 0 40px 40px;
+}
+
+.aba-conteudo.ativo{
+    display: block;
+}
+
+.aba-conteudo{
+    display: none;
+}
+
+.aba-conteudo-titulo-principal{
+    font-size: 28px;
+    text-align: center;
+}
+
+.aba-conteudo-titulo-secundario{
+    font-size: var(--verde);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px){
