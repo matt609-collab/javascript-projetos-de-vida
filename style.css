@@ -28,7 +28,7 @@ body{
 .titulo-principal{
     text-align: left;
     width: 100%;
-    font-size: 32px;
+    font-size: 45px;
 }
 
 .titulo-principal span{
@@ -42,7 +42,7 @@ body{
     display: flex;
     justify-content: center;
     padding: 1em;
-    font-size: 18px;
+    font-size: 32px;
     align-items:center;
     width: 100%;
     border-bottom: 4px solid var(--botao-ativo);
@@ -79,7 +79,7 @@ body{
 }
 
 .aba-conteudo-titulo-principal{
-    font-size: 28px;
+    font-size: 34px;
     text-align: center;
 }
 
@@ -87,6 +87,7 @@ body{
     text-align: center;
     color: var(--verde);
     text-transform: uppercase;
+    font-size: 30px;
 }
 
 @media screen and (min-width: 768px){
@@ -102,5 +103,25 @@ body{
 }
 
 .contador{
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contador-digito{
+    padding: 0 16px;
     text-align: center;
+    min-width: 100px;
+}
+
+.contador-digito-numero{
+    font-size: 80px;
+    margin: 0;
+}
+
+.contador-digito-texto{
+    color: var(--verde);
+    font-size: 32px;
+    margin: 0;
 }
