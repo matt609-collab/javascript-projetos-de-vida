@@ -1,5 +1,56 @@
+// Variables and constants --------------------------------------------------------------------//
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
+const contadores = document.querySelectorAll(".contador");
+const tempoObjetivo1 = new Date("2025-10-05T00:00:00");
+const tempoObjetivo2 = new Date("2025-12-05T00:00:00");
+const tempoObjetivo3 = new Date("2026-01-05T00:00:00");
+const tempoObjetivo4 = new Date("2026-02-05T00:00:00");
+const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+// -------------------------------------------------------------------------------------------//
+
+//Functions-----------------------------------------------------------------------------------------------------------------//
+
+function calculaTempo(tempoObjetivo) {
+    let tempoAtual = new Date();
+    let tempoFinal = tempoObjetivo - tempoAtual;
+    let segundos = Math.floor(tempoFinal / 1000);
+    let minutos = Math.floor(segundos / 60);
+    let horas = Math.floor(minutos / 60);
+    let dias = Math.floor(horas / 24);
+
+    segundos %= 60;
+    minutos %= 60;
+    horas %= 24;
+
+    if(tempoFinal > 0){
+
+        return dias + " DIAS, " + horas + " HORAS, " + minutos + " MINUTOS, " + segundos + " SEGUNDOS.";
+
+    } else {
+
+        return "Acabou o prazo!";
+
+    }
+}
+
+function atualizaCronometro(){
+
+    for(let i = 0; i < contadores.length; i++){
+        contadores[i].textContent = calculaTempo(tempos[i]);
+    }
+
+}
+
+function comecaCronoetro(){
+
+    atualizaCronometro();
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------------//
+
+//code body--------------------------------------------------------------------------------------------------------------//
 
 for (let i = 0; i < botoes.length; i++) {
     botoes[i].onclick = function () {
@@ -14,23 +65,8 @@ for (let i = 0; i < botoes.length; i++) {
     }
 }
 
-const contadores = document.querySelectorAll(".contador");
-const tempoObjetivo1 = new Date("2023-10-05T00:00:00");
-
-
 contadores[0].textContent = calculaTempo(tempoObjetivo1);
 
-function calculaTempo(tempoObjetivo) {
-    let tempoAtual = new Date();
-    let tempoFinal = tempoObjetivo - tempoAtual;
-    let segundos = Math.floor(tempoFinal / 1000);
-    let minutos = Math.floor(segundos / 60);
-    let horas = Math.floor(minutos / 60);
-    let dias = Math.floor(horas / 24);
+setInterval(atualizaCronometro, 1000)
 
-    segundos %= 60;
-    minutos %= 60;
-    horas %= 24;
-
-    return dias + " DIAS," + horas + " HORAS," + minutos + " MINUTOS," + segundos + " SEGUNDOS.";
-}
+//-------------------------------------------------------------------------------------------------------------------------//
